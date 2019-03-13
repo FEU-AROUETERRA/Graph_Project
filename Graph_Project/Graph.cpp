@@ -7,7 +7,6 @@ Graph::Graph() {
 	Limit = 0;
 	adjacent = new Neighbors[Limit];
 	for (int i = 0; i < Limit; ++i) {
-		//adjacent[i].head = NULL;
 		adjacent[i].head = NULL;
 	}
 }
@@ -15,7 +14,6 @@ Graph::Graph(int limit) {
 	Limit = limit;
 	adjacent = new Neighbors[Limit];
 	for (int i = 0; i < Limit; ++i) {
-		//adjacent[i].head = NULL;
 		adjacent[i].head = NULL; 
 	}
 }
@@ -71,9 +69,9 @@ void Graph::Connect(int first, int second, bool type)
 			Vertex *temp, *temp2;
 			for (int i = 0; i < Limit; i++) {
 				temp = Add_Vertex(i);
-				//temp2 = Add_Vertex(i);
+				temp2 = Add_Vertex(i);
 				adjacent[i].head = temp;
-				//adjacent[i].head = temp2;
+				adjacent[i].head = temp2;
 			}
 		}
 		counter++;
@@ -151,7 +149,6 @@ list<int> Graph::DFS(int from)
 	for (int i = 0; i < Limit; i++)
 		visited[i] = false;
 
-	
 	stack<int> pringles;
 	pringles.push(from);
 
@@ -187,9 +184,8 @@ void AMatrix::Connect(int first, int second, bool type)
 	}
 	else
 	{
-		
 		if (type == false) {
-			if (Neighbor[first][second] == 1 && Neighbor[second][first]) {
+			if (Neighbor[first][second] == 1 && Neighbor[second][first] == 1) {
 				Neighbor[first][second] = 2;
 				Neighbor[second][first] = 2;
 			}
@@ -226,14 +222,6 @@ void AMatrix::Display()
 	}
 }
 
-//void AMatrix::DFS(int n) {
-//	cout << n;
-//	bool *visited = new bool[Limit];
-//	for (int i = 0; i < Limit; i++) {
-//		if (!visited[i] && Neighbor[n][i] == 1)
-//			DFS(i);
-//	}
-//}
 
 AMatrix::AMatrix(int limit)
 {
@@ -288,8 +276,8 @@ list<int> AMatrix::DFS(int node) {
 		node = pringles.top();  
 		pringles.pop();
 		//cout << node << " ";
-		//print_list.push_back(node);
-		print_list.push_front(node);
+		print_list.push_back(node);
+		//print_list.push_front(node);
 		for (int i = 0; i < Limit; i++)    
 		{
 			if (Neighbor[node][i] <= 0) { 

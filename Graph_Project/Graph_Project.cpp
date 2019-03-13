@@ -273,6 +273,11 @@ void Menu() {
 	Colorize format;
 	do {
 		system("cls");
+		format.Paint(14, " Types of Graphs: A data structures project ", "\n");
+		format.Paint(8, " August Bryan Florese ", "\n");
+		format.Paint(8, " Rowell Ferrer ", "\n");
+		format.Paint(8, " Ian Pacelo ", "\n");
+		format.Paint(8, " Bryan Alvarico ", "\n\n");
 		format.Paint(14, " Select Matrix Type: ", "\n");
 		cout << "[1] Directed Adjacency Matrix?" << endl;
 		cout << "[2] Undirected Adjacency List?" << endl; 
